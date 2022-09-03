@@ -41,7 +41,9 @@ pipeline {
 
 	 dir('src')
 	        {       
-        	echo 'Deploy'  
+		sh '/home/arul/MUTHOOT/CUSTOM/DOCKER_COMPOSE/stopbyname.sh discount.grpc'
+		sh 'docker run -d --env-file env.discount.grpc  -p "8003:80"  --name discount.grpc discount.grpc'
+		echo 'Deploy'  
         	}
 
       	}
